@@ -1602,12 +1602,21 @@
               ]
           
         },
-        "mark": {"type": "bar", "tooltip": true},
-        "encoding": {
-          "x": {"field": "Units", "type": "quantitative", "bin": true, "axis": {"title": "Units"}},
-          "y": {"aggregate": "count", "type": "quantitative", "axis": {"title": "Frequency"}},
-          "color": {"value": "lightgray"}
-        }
+        "mark": "bar",
+                    "encoding": {
+                      "x": {"field": "Units", "type": "quantitative", "bin": true},
+                      "y": {"aggregate": "count", "type": "quantitative"},
+                      "color": {"field": "Item", "type": "nominal"},
+                      "tooltip": [
+                        {"field": "Units", "type": "quantitative", "title": "Units"},
+                        {
+                          "field": "count",
+                          "type": "quantitative",
+                          "aggregate": "count",
+                          "title": "Count"
+                        }
+                      ]
+                    }
       },
       {
   
@@ -2412,13 +2421,13 @@
                     }
                   ]
                 },
-                
+
                 "mark": "point",
                 "encoding": {
                   "x": {"field": "Units", "type": "quantitative"},
                   "y": {"field": "Unit Cost", "type": "quantitative"},
                   "color": {
-                    "value": "grey"
+                    "field": "Item", "type": "nominal"
                   },
                   "tooltip": [
                     {"field": "Units", "type": "quantitative"},
